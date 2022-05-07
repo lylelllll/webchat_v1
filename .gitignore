@@ -9,3 +9,7 @@
 **/migrations
 
 **.pyc
+
+**/static
+
+**/static_cdn
