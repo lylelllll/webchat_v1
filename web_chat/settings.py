@@ -29,10 +29,16 @@ ALLOWED_HOSTS = ["114.115.156.249"]
 
 
 # Application definition
+AUTH_USER_MODEL = 'account.Account'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'account.backends.CaseInsensitiveModelBackend',
+    )
 
 INSTALLED_APPS = [
     #my app
     'personal',
+    'account',
 
     'django.contrib.admin',
     'django.contrib.auth',
