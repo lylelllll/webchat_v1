@@ -1,0 +1,11 @@
+.idea/
+
+**/__pycache__
+
+**/media
+
+**/media_cdn
+
+**/migrations
+
+**.pyc
