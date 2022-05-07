@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+0_)eje!q*&f+7y@q$)prk)k()k!8wkse8$cs+e$!wx78l13ky
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["114.115.156.249"]
 
 
 # Application definition
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'web_chat.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'web_chat',
+        'USER': 'root',
+        'PASSWORD': 'Liangshang12',
+        'HOST': '114.115.156.249',
+        'PORT': '3306'
     }
 }
 
