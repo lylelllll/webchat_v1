@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<style type="text/css">
+
+  .card-signin {
+	  width: 100%;
+	  max-width: 400px;
+	  padding: 15px;
+	  margin: auto;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+</style>
+
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="card card-signin">
+		  <div class="card-body">
+		    <form class="form-signin" method="post">{% csrf_token %}
+				<div class="d-flex flex-row pb-4 flex-grow-1">
+				<img class="img-fluid mx-auto d-block" src="{% static 'pics/haha.png' %}" alt="codingwithmitch logo" width="72" height="72">
+					<h5>美女与发鬼佬</h5>
+					<img class="img-fluid mx-auto d-block" src="{% static 'pics/xixi.png' %}" alt="codingwithmitch logo" width="72" height="72">
+				</div>
+				<div class="p-3"> <input type="email" name="email" id="inputEmail" class="form-control p-3" placeholder="宝贝的邮箱" required autofocus></div>
+
+				<div class="p-3"><input type="text" name="username" id="inputUsername" class="form-control p-3" placeholder="宝贝的用户名" required></div>
+
+				<div class="p-3"><input type="password" name="password1" id="inputPassword1" class="form-control p-3" placeholder="宝贝的密码" required></div>
+
+				<div class="p-3"><input type="password" name="password2" id="inputPassword2" class="form-control p-3" placeholder="发鬼婆宝贝确认密码" required></div>
+
+				{% for field in registration_form %}
+				<p>
+				{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+				{% endfor %}
+				</p>
+				{% endfor %}
+				{% if registration_form.non_field_errors %}
+				<div style="color: red">
+					<p>{{registration_form.non_field_errors}}</p>
+				</div>
+
+				{% endif %}
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit">填好了，按这里哦mua</button>
+
+				</form>
+		  </div>
+		</div>
+		
+	</div>
+</div>
+
+{% endblock content %}
