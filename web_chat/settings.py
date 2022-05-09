@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #my app
     'personal',
     'account',
+    'friend',
 
     'django.contrib.admin',
     'django.contrib.auth',
