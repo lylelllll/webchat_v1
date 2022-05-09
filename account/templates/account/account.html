@@ -73,7 +73,7 @@
 		  <div class="card-body">
 		  	<div class="d-flex flex-column justify-content-center p-4">
 		  		<div class="image-container mx-auto mb-4">
-		  			<img class="d-block border border-dark rounded-circle img-fluid mx-auto profile-image" alt="logo" id="id_profile_image" src="{{profile_image}}">
+		  			<img class="d-block border border-dark rounded-circle img-fluid mx-auto profile-image" alt="codingwithmitch logo" id="id_profile_image" src="{{profile_image}}">
 		  		</div>
 		  		<p class="mt-4 mb-1 field-heading">Email</p>
 		  		{%  if is_self %}
@@ -133,8 +133,8 @@
 						</div>
 						{% endif %}
 				{% endif %}
-					
-					
+
+
 				{% if is_friend %}
 					<div class="dropdown pt-4 m-auto">
 						<button class="btn btn-secondary dropdown-toggle friends-btn" type="button" id="id_friends_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -145,32 +145,30 @@
 						</div>
 					</div>
 				{% endif %}
-				
-				<!-- TODO -->
+
 				<!-- Friend list link -->
 		  		<div class="d-flex flex-column pt-4">
 					<a href="#">
 						<div class="d-flex flex-row align-items-center justify-content-center icon-container">
-							<span class="material-icons mr-2 friends-icon">contact_page</span><span class="friend-text">Friends (0)</span>
+							<span class="material-icons mr-2 friends-icon">contact_page</span><span class="friend-text">Friends ({{friends|length}})</span>
 						</div>
 					</a>
 				</div>
 
 			</div>
 
-			<!-- TODO -->
-			{#% if friend_requests %#}
+			{% if friend_requests %}
 			<div class="card m-2 px-4 pb-4">
 				<!-- Friend requests -->
 		  		<div class="d-flex flex-column pt-4">
 					<a href="#">
 						<div class="d-flex flex-row align-items-center justify-content-center icon-container">
-							<span class="material-icons mr-2 person-add-icon">person_add</span><span class="friend-text">Friend Requests (0)</span>
+							<span class="material-icons mr-2 person-add-icon">person_add</span><span class="friend-text">Friend Requests ({{friend_requests|length}})</span>
 						</div>
 					</a>
 				</div>
 			</div>
-			{#% endif %#}
+			{% endif %}
 
 			{% if is_friend %}
 				<div class="d-flex flex-row align-items-center btn btn-primary m-2 px-4" onclick="createOrReturnPrivateChat('{{id}}')">
@@ -184,7 +182,7 @@
 		</div>
 		{% endif %}
 
-		
+
 	</div>
 </div>
 
@@ -243,7 +241,7 @@
 	function triggerDeclineFriendRequest(friend_request_id){
 		//declineFriendRequest(friend_request_id, onFriendRequestDeclined)
 	}
-	
+
 </script>
 
 {#% include 'snippets/send_friend_request.html' %#}
@@ -256,3 +254,4 @@
 
 
 {% endblock content %}
+
