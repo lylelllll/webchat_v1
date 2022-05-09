@@ -15,9 +15,9 @@ def register_view(request, *args, **kwargs):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            email = form.cleaned_data.get('email').lower()
+            username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            account = authenticate(email=email, password=raw_password)
+            account = authenticate(username=username, password=raw_password)
             login(request, account)
             destination = kwargs.get("next")
             if destination:
@@ -50,9 +50,9 @@ def login_view(request, *args, **kwargs):
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
         if form.is_valid():
-            email = request.POST['email']
+            username = request.POST['username']
             password = request.POST['password']
-            user = authenticate(email=email, password=password)
+            user = authenticate(username=username, password=password)
 
             if user:
                 login(request, user)

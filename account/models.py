@@ -56,8 +56,8 @@ class Account(AbstractBaseUser):
                                       default=get_default_profile_image)
     hide_email = models.BooleanField(default=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'username'
+    #REQUIRED_FIELDS = ['username']
 
     objects = MyAccountManager()
 
