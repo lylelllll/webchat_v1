@@ -25,6 +25,11 @@ SECRET_KEY = 'django-insecure-+0_)eje!q*&f+7y@q$)prk)k()k!8wkse8$cs+e$!wx78l13ky
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # 重置密码时不发邮件
+
+
 ALLOWED_HOSTS = ["114.115.156.249"]
 
 
