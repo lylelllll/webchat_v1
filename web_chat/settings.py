@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ["114.115.156.249"]
 AUTH_USER_MODEL = 'account.Account'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
-    'account.backends.CaseInsensitiveModelBackend',
+    'account.backends.CaseInsensitiveModelBackend'
     )
 
 INSTALLED_APPS = [
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'web_chat.wsgi.application'
 
+ASGI_APPLICATION = 'web_chat.routing.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
